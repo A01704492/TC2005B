@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 1</title>
+    <style>
+    body {
+        margin: 0 auto;
+        max-width: 50em;
+        font-family: "Helvetica", "Arial", sans-serif;
+        line-height: 1.5;
+        padding: 4em 1em;
+        color: rgb(0, 115, 231);
+    }
+    h1{
+        margin-top: 5px;
+        text-align: center;
+
+    }
+    h2,h3 {
+        margin-top: 1em;
+        padding-top: 1em;
+        color: #000;
+    }
+    p {
+        color: #444;
+    }
+    table{
+        color: #444;
+        border-collapse: separate;
+        border-spacing: 100px 5px;
+    }
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    </style>
+</head>
+<body>
+
+    
+
+    <h1>Mi página personal</h1>
+
+    <section id="acerca de mi">
+        <u><h2>¿Quién soy yo?</h2></u>
+        <p>Me llamo Diego Vega Camacho, tengo 19 años y soy nacido en la CDMX. Actualmente soy un estudiante de Ingeniería en Tecnologías Computacionales en el Tecnológico de Monterrey Campus Qro.
+            <br>
+            <br>
+            Soy una persona trabajadora, comunicativa y comprometida. Este semestre desearía adquirir más experiencia a través de está materia para mi futura vida profesional.
+        </p>
+    </section>
+
+    <section id="background">
+        <u><h2>Mi Foto</h2></u>
+        <img src="Diego.jpeg" alt="YO" class="center">
+    </section>
+
+    <section id="preguntas">
+        <u><h2>Preguntas</h2></u>
+        <h3>1. ¿Cuál es la diferencia entre Internet y la World Wide Web?</h3>
+        <p>El internet es la infraestructura que permite la comunicación global entre dispositivos, mientras que la World Wide Web (WWW) es una colección de páginas web que se acceden desde un navegador web los cuales están interconectados a través de enlaces hipertexto que permiten que los usuarios navegen y accedan a la información.</p>
+        <h3>2. ¿Cuáles son las partes de un URL?</h3>
+        <table>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+            </tr>
+            <tr>
+                <th>Protocolo</th>
+                <th>Dominio</th>
+                <th>Ruta</th>
+                <th>Parámetros</th>
+            </tr>
+        </table>
+        <h3>3. ¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</h3>
+        <p>Son comandos que permiten realizar diferentes acciones en un servidor web.
+            <br>
+            <br>
+            1. GET permite solicitar un recurso en específico en el servidor. Se envián datos a través de un URL y el servidor responde con los datos solicitados.
+            <br>
+            <br>
+            2. HEAD solicita los mismos datos que GET pero sin el cuerpo de respuesta.
+            <br>
+            <br>
+            3. POST envía datos al servidor en el cuerpo de la solicitud y pueden utilizarse para actualizar bases de datos o crear nuevos recursos.
+            <br>
+            <br>
+            4. PUT actualiza un recurso existente en el servidor.
+            <br>
+            <br>
+            5. PATCH permite actualizar parcialmente un recurso en el servidor.
+            <br>
+            <br>
+            6. DELETE elimina un recurso específico del servidor.
+        </p>
+        <h3>4. ¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</h3>
+        <p>El método mas adecuado para enviar información condfidencial es POST, pues es el método más seguro de envío de datos dado que oculta los datos en el cuerpo de la solicitud en lugar de incluirlos en la URL como lo hace el método de GET.</p>
+        <h3>5. ¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</h3>
+        <p>El método GET pues este accede al recurso solicitado en el servidor a través de la URL.</p>
+        <h3>6. Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</h3>
+        <p>Indica que la solicitud fue procesada con éxito y a devuelto una respuesta satisfactoria.</p>
+        <h3>7. ¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</h3>
+        <p>Dado que el error 404 indica que la solicitud no pudo ser procesada debido a que el recurso solicitado no existe o no está disponible en la ubicación específicada. Por lo tanto es la responsabilidad del desarrollador restaurar la disponibilidad de la página.</p>
+        <h3>8. ¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</h3>
+        <p>Si, el error 500 indica un error interno en el cual el servidor no ha podido procesar la solicitud y se le solicita al usuario intentar más tarde. Es el desarrollador quien debe investigar el problema y tomar las medidas necesarias para resolver el problema.</p>
+        <h3>9. ¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</p>
+        <p>El término depreciado o desaprobado, significa que su uso ya no es recomendado y puede ser eliminado en futuras versiones de HTML
+            <br>
+            <br>
+            * Atributos desaprobados:
+            <br>
+            <br>
+            - 'align'
+            <br>
+            - 'bgcolor'
+            <br>
+            - 'frameborder'
+            <br>
+            <br>
+            * Elementos desaprobados:
+            <br>
+            <br>
+            - 'acronym'
+            <br>
+            - 'applet'
+            <br>
+            - 'font'
+        </p>
+        <h3>10. ¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</h3>
+        <p>
+            1. HTML5 ofrece nuevos elementos semánticos
+            <br>
+            <br>
+            2. Soporte de multimedia
+            <br>
+            <br>
+            3. Compatibilidad con dispositivos móviles
+            <br>
+            <br>
+            4. Formularios avanzados
+            <br>
+            <br>
+            5. Atributos desaprobados
+            <br>
+            <br>
+            6. Compatibilidad con API de JavaScript
+        </p>
+        <h3>11. ¿Qué componentes de estructura y estilo tiene una tabla?</h3>
+        <p>
+            1. 'table' - el cual crea la tabla.
+            <br>
+            <br>
+            2. 'tr' - define cada fila de la tabla.
+            <br>
+            <br>
+            3. 'td' - define cada celda de la tabla.
+            <br>
+            <br>
+            4. 'th' - sirve para definir el encabezado en una tabla.
+            <br>
+            <br>
+            5. 'caption' - define un título o leyenda para la tabla.
+            <br>
+            <br>
+            6. Atributos de Tabla - brindan el diseño de la tabla.
+        </p>
+        <h3>12. ¿Cuáles son los principales controles de una forma HTML5?</h3>
+        <p>Los controles son utilizados en formularios que permiten a usuarios ingersar y enviar información
+            <br>
+            <br>
+            1. input type = 'text' - permite a los usuarios ingresar texto
+            <br>
+            <br>
+            2. input type = 'password' - permite a los usuarios ingresar una contraseña pero oculta el texto a medida que se escribe
+            <br>
+            <br>
+            3. input type = 'number' - permite ingresar numeros en campos de texto
+            <br>
+            <br>
+            4. input type = 'email' - permite a usuarios ingresar una dirección de correo electrónico 
+            <br>
+            <br>
+            5. input type = 'tel' - permite a usuarios ingresar un número de teléfono
+            <br>
+            <br>
+            6. input type = 'checkbox' - permite que los usuarios seleccionen entre una o varias opciones de una lista de opciones
+            <br>
+            <br>
+            7. input type = 'radio' - permite a usuarios seleccionar UNA opcion de listas de opciones
+            <br>
+            <br>
+            8. 'select' - permite a usuarios seleccionar de una lista desplegable 
+            <br>
+            <br>
+            9. 'textarea' - permite a usuarios ingresar texto en varías líneas de campo de texto
+        </p>
+        <h3>13. ¿Qué tanto soporte HTML5 tiene el navegador que utilizas? </p>
+        <p>El navegador que uso (Google Chrome 109) en MacOS Catalina 10.15 tiene un score de 476/555 lo cual permite soportar un gran número de componentes.</p>
+        <h3>14. Sobre el ciclo de vida y desarrollo de los sistemas de información:
+            ¿Cuál es el ciclo de vida de los sistemas de información?
+            ¿Cuál es el ciclo de desarrollo de sistemas de información?</h3>
+        <p>El ciclo de vida de los sistemas de información es un proceso que sigue el desarrollo y mantenimiento de un sistema de información a los largo de su vida útil, consta de 5 etapas las cuales se desglosan de la siguiente forma:
+            <br>
+            1. Planificacón: Se definen objetivos y requisitos del sistema de información. A su vez se establecen los recursos necesarios y se elabora un plan de proyecto
+            <br>
+            <br>
+            2. Análisis: Se analiza el sistema actual y se identifican los procesos de negocio que deben de ser automatizados
+            <br>
+            <br>
+            3. Diseño: Se definen las específicaciones técnicas del sistema, se elabora el diseño de una base de datos y se desarrolla un modelo lógico y físico del sistema.
+            <br>
+            <br>
+            4. Implementación: Se lleva acabo la codificación del software y la instalación del hardware y software necesario. De igual forma se realiza la integración del sistema con otros sistemas.
+            <br>
+            <br>
+            5. Mantenimiento: Toma lugar el mantenimiento del sistema que puede incluir correción de errores, actualizaciones de docs., nuevas funcionalidades y mejoramiento del rendimiento.
+            <br>
+            <br>
+            El ciclo de vida de desarrollo de los sistemas de información brindan el enfoque hacia el ciclo de vida completo del sistema:
+            <br>
+            1. Identificación de requisitos: Se definen y se recompilan los requisitos del sistema de información. A su vez, se determinan los objtivos del sistema y los procesos que se busca automatizar.
+            <br>
+            <br>
+            Los pasos siguientes son exactamente los mismos que los del ciclo de vida de los sistemas de información.
+        </p>
+    </section>
+</body>
+</html>
