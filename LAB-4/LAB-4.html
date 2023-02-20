@@ -264,10 +264,29 @@
     </p>
     <h3><em>¿Cómo se declara una variable con alcance local dentro de una función?</em></h3>
     <p>
-        
+        <br>
+        Para que una variable se declare con alcance local tiene que ser inicializada dentro de la función , se utiliza el tipo de dato 'let' o 'const' para declararlo dentro del cuerpo de la misma. AL definirlas localmente no pueden ser accedidas desde afuera.
     </p>
     <h3><em>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</em> </h3>
-    <p></p>
+    <p>
+        <br>
+        <dl class="row">
+            <dt class="col-sm-3">Confusión de variables</dt>
+            <dd class="col-sm-9">Puede causar confusión y errores si se utiliza el mismo nombre de variable global dentro de una función.</dd>
+            <br><br>
+            <dt class="col-sm-3">Interferencia con otras partes del código</dt>
+            <dd class="col-sm-9">Se corre el riesgo de que la variable se utilice o se modfique accidentalmente en otra parte del código.</dd>
+            <br><br><br>
+            <dt class="col-sm-3">Rendimiento</dt>
+            <dd class="col-sm-9">Son menos eficientes las variables globales que las locales debido a que deben de ser buscadas en todo el ámbito del programa cada vez que se utilizan.</dd>
+            <br><br>
+            <dt class="col-sm-3">Mantenibilidad</dt>
+            <dd class="col-sm-9">El uso excesivo de variables globales hará que el código sea más difícil de entender, mantener y depurar.</dd>
+            <br><br>
+            <dt class="col-sm-3">Seguridad</dt>
+            <dd class="col-sm-9">Las variables globales pueden ser modificadas desde cualquier parte del programa, lo que presenta un riesgo si se utilia para almacenar información sensible o privada.</dd>
+          </dl>
+    </p>
     <script src="LAB-4.js"></script>
 </body>
 </html>
