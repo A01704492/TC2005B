@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <title>LAB-4</title>
+    <style>
+        body {
+            margin: 0 auto;
+            max-width: 75em;
+            font-family: "Helvetica", "Arial", sans-serif;
+            line-height: 1.5;
+            padding: 4em 1em;
+            
+        }
+        h1{
+            color: rgb(0, 115, 231);
+            margin-top: 5px;
+            text-align: center;
+            font-size: xx-large;
+        }
+        h2,h3 {
+            margin-top: 1em;
+            padding-top: 1em;
+            color: #000;
+            color: rgb(0, 115, 231);
+            font-size: x-large;
+        }
+        p {
+            color: #444;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="display-1">Laboratorio 4</h1>
+    <u><h2><mark>Fundamentos JavaScript Ejercicios</mark></h2></u>
+    <h3>Escribe, prueba y corrige scripts de JavaScript para los siguientes problemas.</h3>
+        <p class="lead">
+            <em>1. Entrada: un número pedido con un prompt. Salida: Una tabla con los números del 1 al número dado con sus cuadrados y cubos. Utiliza document.write para producir la salida</em> 
+            <br><br>
+            <small><button id = ejercicio1></button></small>
+            <br><br>
+            <em>2. Entrada: Usando un prompt se pide el resultado de la suma de 2 números generados de manera aleatoria. Salida: La página debe indicar si el resultado fue correcto o incorrecto, y el tiempo 
+            que tardó el usuario en escribir la respuesta.</em> 
+            <br><br>
+            <small><button id = ejercicio2></button></small>
+            <br><br>
+            <em>3. Función: contador. Parámetros: Un arreglo de números. Regresa: La cantidad de números negativos en el arreglo, la cantidad de 0's, y la cantidad de valores mayores a 0 en el arreglo.</em> 
+            <br><br>
+            <small>Arreglo : [-30, 4, 0, -48, 0, 44]</small> 
+            <br>
+            <small>CHECA EL RESULTADO EN LA CONSOLA :) (Primero)</small> 
+            <br><br>
+            <em>4. Función: promedios. Parámetros: Un arreglo de arreglos de números. Regresa: Un arreglo con los promedios de cada uno de los renglones de la matriz.</em> 
+            <br><br>
+            <small>Promedios : [9.4, 9.2, 8.3], [7.4, 5.9, 9.6], [7.7, 8.7, 9.9]</small> 
+            <br>
+            <small>CHECA EL RESULTADO EN LA CONSOLA :) (Segundo)</small> 
+            <br><br>
+            <em>5. Función: inverso. Parámetros: Un número. Regresa: El número con sus dígitos en orden inverso.</em> 
+            <br><br>
+            <small>Número = 5,372,942</small> 
+            <br>
+            <small>CHECA EL RESULTADO EN LA CONSOLA :) (Tercero)</small> 
+            <br><br>
+            <em>6. Crea una solución para un problema de tu elección (puede ser algo relacionado con tus intereses, alguna problemática que hayas identificado en algún ámbito, un problema de programación 
+            que hayas resuelto en otro lenguaje, un problema de la ACM, entre otros). El problema debe estar descrito en un documento HTML, y la solución implementada en JavaScript, utilizando al 
+            menos la creación de un objeto, el objeto además de su constructor deben tener al menos 2 métodos. Muestra los resultados en el documento HTML.</em> 
+            <small>Contexto del problema: 
+            <br><br>
+            Ciclos - Factorial de un número
+            <br><br>
+            Escribe un programa que calcule el factorial de un número N, donde N es solicitado al usuario. El factorial de un número es:  
+            <br><br>
+            Si N=0 o N=1, el factorial es 1  
+            <br>
+            Si N es cualquier número positivo se calcula como: <br>
+             N! = 1 * 2 * 3 * ... * N.  
+            <br><br>
+            Por ejemplo factorial de 4 es 1 * 2 * 3 * 4 = 24
+            <br>
+            Si el usuario ingresa un valor negativo se debe mostrar el siguiente mensaje:  
+            "Factorial no definido para negativos"</small>
+            <br><br>
+            Solución: 
+            <br><br>
+            <small><button id = "ejercicio6"></button></small>
+        </p>
+    <u><h2><mark>Preguntas</mark></h2></u>
+    <h3><em>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</em></h3>
+    <br>
+    <p>
+        <p>Diferencias</p>
+        <table class="table">
+            <thead>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr>
+                <th scope="row">Propósito</th>
+                <td>Java tiene como proposito desarrollar aplicaciones de escritorio, móviles y empresariales. Mientras que JavaScript se utiliza para desarrollar aplicaciones web incluyendo front-end y back-end.</td>
+              </tr>
+              <tr>
+                <th scope="row">Tipado</th>
+                <td>Java está fuertemente tipado mientras que JavaScript está débilmente tipado.</td>
+              </tr>
+              <tr>
+                <th scope="row">Compilación</th>
+                <td colspan="2">Mientras que Java es compilado, JavaScript es interepretado.</td>
+              </tr>
+              <tr>
+                <th scope="row">Herencia</th>
+                <td colspan="2">Java permite herencia múltiple mientras que JavaScript no.</td>
+              </tr>
+              <tr>
+                <th scope="row">Sintaxis</th>
+                <td colspan="2">JavaScript utiliza opcionalmente llaves '{}' y el punto y coma ';' opcionalmente, para Java estos se utilizan para delimitar bloques de código y forzosamente al final de cada sentencia.</td>
+              </tr>
+            </tbody>
+          </table>
+    </p>
+    <br>
+    <p>
+        <p>Similitudes</p>
+        <table class="table">
+            <thead>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr>
+                <th scope="row">Programación orientada a objetos</th>
+                <td>Ambos son lenguajes de programación orientados a objetos.</td>
+              </tr>
+              <tr>
+                <th scope="row">C</th>
+                <td>Sintaxis similar a C.</td>
+              </tr>
+              <tr>
+                <th scope="row">Tipos de Datos</th>
+                <td>Ambos lenguajes tienen tipos de datos básicos similares, como números, cadenas, booleanos, etc.</td>
+              </tr>
+              <tr>
+                <th scope="row">DOM</th>
+                <td>Capacidad de manipular el DOM (Document Object Model) y manejar eventos en el navegador.</td>
+              </tr>
+              <tr>
+                <th scope="row">Variedad</th>
+                <td>Ambos lenguajes tienen una amplia variedad de bibliotecas y frameworks para facilitar el desarrollo de aplicaciones.</td>
+              </tr>
+            </tbody>
+          </table>
+    </p>
+    <h3><em>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</em></h3>
+    <p>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  <strong>getDate()</strong> 
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Devuelve el día del mes (un número entre 1 y 31) de la fecha especificada.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                <strong>getMonth()</strong>
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Devuelve el mes (un número entre 0 y 11) de la fecha especificada.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                  <strong>getFullYear()</strong> 
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Devuelve el año (con cuatro dígitos) de la fecha especificada.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                    <strong>getHours()</strong> 
+                  </button>
+                </h2>
+                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">Devuelve la hora (un número entre 0 y 23) de la fecha especificada.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                    <strong>getTime()</strong> 
+                  </button>
+                </h2>
+                <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">Devuelve el número de milisegundos transcurridos desde la medianoche del 1 de enero de 1970 (conocido como "epoch" o "timestamp") hasta la fecha y hora especificadas.</div>
+                </div>
+              </div>
+          </div>
+    </p>
+    <h3><em>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</em></h3>
+    <p>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  <strong>push()</strong> 
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Agrega uno o más elementos al final del arreglo y devuelve la nueva longitud del arreglo.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  <strong>pop()</strong> 
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Elimina el último elemento del arreglo y lo devuelve.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                  <strong>shift()</strong> 
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Elimina el primer elemento del arreglo y lo devuelve.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                    <strong>slice()</strong> 
+                  </button>
+                </h2>
+                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">Agrega, elimina o reemplaza uno o más elementos en cualquier posición del arreglo.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                    <strong>join()</strong>
+                  </button>
+                </h2>
+                <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">Devuelve una cadena que contiene todos los elementos del arreglo concatenados, separados por el carácter especificado.</div>
+                </div>
+              </div>
+          </div>
+    </p>
+    <h3><em>¿Cómo se declara una variable con alcance local dentro de una función?</em></h3>
+    <p>
+        
+    </p>
+    <h3><em>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</em> </h3>
+    <p></p>
+    <script src="LAB-4.js"></script>
+</body>
+</html>

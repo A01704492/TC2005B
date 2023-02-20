@@ -61,7 +61,11 @@ console.log(cantidad_tacos());
 
 let boton = document.getElementById("Buenos Dias");
 boton.innerHTML = "¡Buenos dias!";
-boton.onclick = () => alert("¡Buenos dias!");
+boton.onclick = () => {
+    alert("¡Buenos dias!");
+    document.getElementById("ejercicios").innerHTML =
+    "Aquí va la respuesta de los ejercicios";
+}
 
 // Arreglos
 const Arreglo = ["Elemento"];
@@ -79,3 +83,23 @@ for(let Elemento in Arreglo){
 for(let Valor of Arreglo){
     console.log(Valor);
 }
+
+// Objetos
+
+let Objeto = {
+    atributo_1 : "valor 1",
+    atributo_2 : 2
+}
+console.log(Objeto.atributo_1);
+console.log(Objeto.atributo_2);
+Objeto.atributo_3 = "tres";
+
+for(let Elemento in Objeto){
+    console.log(Elemento);
+}
+for(let Elemento in Objeto){
+    console.log(Objeto.Elemento);
+}
+
+const arreglo_de_objeto = [{atributo_1: "valor 0", atributo_2:1},{}, Objeto];
+console.log(arreglo_de_objeto);
