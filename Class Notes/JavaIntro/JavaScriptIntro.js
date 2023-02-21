@@ -103,3 +103,5 @@ for(let Elemento in Objeto){
 
 const arreglo_de_objeto = [{atributo_1: "valor 0", atributo_2:1},{}, Objeto];
 console.log(arreglo_de_objeto);
+
+document.getElementById("boton verdes ")
