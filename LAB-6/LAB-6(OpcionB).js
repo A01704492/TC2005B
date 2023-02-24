@@ -59,7 +59,7 @@
         total += cart[i].price * cart[i].quantity;
       }
   
-      // Add the total row to the cart table
+      
       let totalRow = document.createElement("tr");
 
       let totalCol = document.createElement("td");
