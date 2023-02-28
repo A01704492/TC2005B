@@ -1,4 +1,5 @@
-3 comandos de git
+| 3 comandos de git |
+
 * git add -A
 * git commit -m "mensaje descriptivo"
 * git push 

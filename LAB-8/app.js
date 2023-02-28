@@ -44,7 +44,6 @@ console.log("El número factorial de ", numeroFactorial, " es: ", factorial(nume
 
 const http = require('http');
 filesystem.readFile("/Users/diegovega/ConstdeSoftware/TC2005B/LAB-6/LAB-6(OpcionB).html", function(err, html) {
-    
     if(err){
         throw err;
     }
