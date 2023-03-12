@@ -19,7 +19,7 @@
   "author": "Diego Vega",
   "license": "MIT",
   "devDependencies": {
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.20"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
