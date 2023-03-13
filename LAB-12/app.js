@@ -5,12 +5,14 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
 const ninersRuta = require('./routes/49ers.routes');
 app.use(ninersRuta);
 
 const ninersproductsRuta = require('./routes/products.routes');
-app.use(ninersproductsRuta);
+app.use("/products",ninersproductsRuta);
 
 const ninersbuy_ticketsRuta = require('./routes/buy_tickets.routes');
 app.use(ninersbuy_ticketsRuta);
