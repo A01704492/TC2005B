@@ -5,8 +5,11 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
 const ninersproductsRuta = require('./routes/products.routes');
-app.use(ninersproductsRuta);
+app.use('/products', ninersproductsRuta);
 
 app.use((request, response, next) => {
     response.statusCode = 404;

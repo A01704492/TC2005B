@@ -1,17 +1,32 @@
 <%- include('includes/head.ejs') %>
 
-<h1 class="title">Registrar nuevo perro</h1>
+<style>
+    form{
+        margin: 0 auto;
+        max-width: 85em;
+        line-height: 1.5;
+        padding: 4em 1em;
+    }
+</style>
 
-<form action="/perros/nuevo" method="POST">
+<h1 class="title">Registrar nuevo producto</h1>
 
-    <label for="nombre">Nombre:</label>
-    <input required name="nombre" id="nombre" class="input is-rounded" type="text" placeholder="Firulais">
+<form action="/products/nuevo" method="POST">
+
+    <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <label for="floatingTextarea">Name</label>
+      </div>
     <br><br>
-    <label for="raza">Raza:</label>
-    <input name="raza" id="raza" class="input is-rounded" type="text" placeholder="Firulais">
+    <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <label for="floatingTextarea">Product</label>
+      </div>
     <br><br>
-    <label for="descripcion">Descripcion:</label>
-    <input name="descripcion" id="descripcion" class="input is-rounded" type="text" placeholder="Firulais">
+    <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <label for="floatingTextarea">Description</label>
+      </div>
     <br><br>
     <input class="button is-rounded is-success" type="submit" value="Registrar">
 
