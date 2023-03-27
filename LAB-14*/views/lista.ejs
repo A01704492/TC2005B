@@ -1,0 +1,63 @@
+<%- include('includes/head.ejs') %>
+
+<h1 class="title">Productos registrados</h1>
+
+<a href="/products/nuevo" class="button is-link is-rounded">Registrar producto</a>
+
+<br><br>
+
+<% if (products.length > 0) { %>
+    <div class="columns">
+        <% let columns = 0; %>
+        <% for (let product of products) { %>
+            <% if (columns % 4 == 0) { %>
+    </div>
+    <div class="columns">
+            <% } %>
+            <% columns++; %>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col text-center">
+                <div class="card">
+                    <img src="<%= product.image %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h4 class="text-center"><%= product.name %></h4>
+                    <br>
+                    <h5 class="text-center"><%= product.product %></h5>
+                    <p class="text-center"><%= product.description %></p>
+                    <h6 class="price"><%= product.handle %></h6>
+
+                    <a href="#" class="btn btn-primary, text-center" style="background-color: #ab0404;">View Product</a>
+                    
+                    <button type="button" class="btn btn-primary, text-center" style="background-color: #ab0404;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Add to Cart
+                    </button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+<% } else { %>
+    <h1>No hay productos registradas</h1>
+<% } %>   
+
+<% if (ultimo_producto != '') { %>
+    
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <img src="..." class="rounded me-2" alt="...">
+            <strong class="me-auto">49ers.com</strong>
+            <small>1 mins ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Last added product: <%= ultimo_producto %>
+        </div>
+        </div>
+    </div>
+        
+<% } %>
+    
+
+<%- include('includes/foot.ejs') %>
