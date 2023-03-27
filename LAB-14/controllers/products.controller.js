@@ -2,18 +2,18 @@ const Product = require('../models/products.model');
 
 exports.get_products = (request, response, next) => {
     let cookies = request.get('Cookie') || '';
-    let mainConsultas = cookies.split(';')[0].split('=')[1] || 0;
-    mainConsultas++;
-    response.setHeader('Set-Cookie', 'mainConsultas=' + mainConsultas + '; HttpOnly');
+    let productConsultas = cookies.split(';')[0].split('=')[1] || 0;
+    productConsultas++;
+    response.setHeader('Set-Cookie', 'mainConsultas=' + productConsultas + '; HttpOnly');
     
     response.render('lista');
 };
 
 exports.get_nuevo = (request, response, next) => {
     let cookies = request.get('Cookie') || '';
-    let mainConsultas = cookies.split(';')[0].split('=')[1] || 0;
-    mainConsultas++;
-    response.setHeader('Set-Cookie', 'mainConsultas=' + mainConsultas + '; HttpOnly');
+    let nuevoConsultas = cookies.split(';')[0].split('=')[1] || 0;
+    nuevoConsultas++;
+    response.setHeader('Set-Cookie', 'mainConsultas=' + nuevoConsultas + '; HttpOnly');
     
     response.render('nuevo');
 };
