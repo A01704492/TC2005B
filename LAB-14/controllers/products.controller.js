@@ -6,7 +6,7 @@ exports.get_products = (request, response, next) => {
     productConsultas++;
     response.setHeader('Set-Cookie', 'mainConsultas=' + productConsultas + '; HttpOnly');
     
-    response.render('lista');
+    response.render('products');
 };
 
 exports.get_nuevo = (request, response, next) => {
