@@ -16,6 +16,8 @@ exports.getMain = (request, response, next) => {
 
     response.render('main', {
         titulo: 'Colores',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -28,6 +30,8 @@ exports.getRegister = (request, response, next) => {
 
     response.render('register', {
         titulo: 'Registrar',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -40,6 +44,8 @@ exports.getRB = (request, response, next) => {
 
     response.render('redBull', {
         titulo: 'Red Bull',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -52,6 +58,8 @@ exports.getAM = (request, response, next) => {
 
     response.render('astonMartin', {
         titulo: 'Aston Martin',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -64,6 +72,8 @@ exports.getMB = (request, response, next) => {
 
     response.render('mercedes', {
         titulo: 'Mercedes',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -76,6 +86,8 @@ exports.getFR = (request, response, next) => {
 
     response.render('ferrari', {
         titulo: 'Ferrari',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -88,6 +100,8 @@ exports.getML = (request, response, next) => {
 
     response.render('mclaren', {
         titulo: 'McLaren',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -100,6 +114,8 @@ exports.getAP = (request, response, next) => {
 
     response.render('alpine', {
         titulo: 'Alpine',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -112,6 +128,8 @@ exports.getHA = (request, response, next) => {
 
     response.render('haas', {
         titulo: 'Haas',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -124,6 +142,8 @@ exports.getAR = (request, response, next) => {
 
     response.render('alfaromeo', {
         titulo: 'Alfa Romeo',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -136,6 +156,8 @@ exports.getAT = (request, response, next) => {
 
     response.render('alphatauri', {
         titulo: 'Alpha Tauri',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 

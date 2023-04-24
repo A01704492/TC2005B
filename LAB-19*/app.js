@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const session = require('express-session');
+const csrf = require('csurf');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));

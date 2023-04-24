@@ -72,10 +72,13 @@ exports.get_signup = (request, response, next) => {
 };
 
 exports.post_signup = (request, response, next) => {
+    console.log(request.body.nombre)
+    console.log(request.body.user_email)
+    console.log(request.body.user_password)
     const usuario = new Usuario({
         nombre: request.body.nombre,
-        username: request.body.username,
-        password: request.body.password,
+        user_email: request.body.user_email,
+        user_password: request.body.user_password,
     });
 
     usuario.save()

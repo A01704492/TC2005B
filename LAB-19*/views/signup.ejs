@@ -79,14 +79,14 @@
       <form action="/usuarios/signup" method="POST">
         <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
 
-        <label for="fullname"><b>Full Name</b></label>
-        <input type="text" placeholder="Enter Full Name" name="fullname" required>
+        <label for="fullname"><b>Name</b></label>
+        <input id="nombre" type="text" placeholder="Enter Name" name="nombre" required>
   
         <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" name="email" required>
+        <input id="user_email" type="email" placeholder="Enter Email" name="user_email" required>
   
         <label for="password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
+        <input id="user_password" type="password" placeholder="Enter Password" name="user_password" required>
   
         <a id="IDbutton" type="submit" class="btn btn-success" href="../home">Sign Up</a>
 
