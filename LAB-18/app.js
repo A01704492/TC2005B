@@ -31,7 +31,7 @@ app.use((request, response, next) => {
 
 // Renders
 const rutasUsuarios = require('./routes/usuarios.routes');
-app.use('/usuarios', rutasUsuarios);
+app.use('/usuarios', isAuth, rutasUsuarios);
 
 
 app.use((request, response, next) => {

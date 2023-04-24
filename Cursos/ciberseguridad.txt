@@ -1,0 +1,12 @@
+SDLC - proceso estructurado que permite la produccion de software de alta calidad
+
+requisitos, diseño, desarrollo, pruebas, despliegue y mantenimiento
+
+Secure Software Development Framework - NIST
+
+
+¿Como se inicia en seguridad?
+
+* Cuestionar la seguridad del sistema
+* Definir una "sana paranoia"
+* OSWAP Top 10

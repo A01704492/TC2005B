@@ -1,0 +1,12 @@
+- Proceso de diseño y ejecución de pruebas
+
+    * 
+
+- ¿Qué son los triggers?
+
+    * Es aquel código que quiero que se ejecute en el gestor de la base de datos despues o antes de que ocurra un evento
+    * DDL (CREATE, ALTER, DROP)
+    * DML (INSERT, UPDATE, DELETE)
+    * Query (SELECT)
+
+    

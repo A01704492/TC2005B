@@ -1,4 +1,4 @@
-const Escuderia = require('../models/colors.model');
+const Escuderia = require('../models/escuderias.model');
 
 exports.getMain = (request, response, next) => {
     
@@ -135,7 +135,7 @@ exports.getAT = (request, response, next) => {
 exports.postEscuderia = (request, response, next) => {
 
     const escuderia = new Escuderia({
-        escuderia: request.body.escuderia,
+        nombre: request.body.nombre,
         descripcion: request.body.descripcion,
     });
 
@@ -146,11 +146,12 @@ exports.postEscuderia = (request, response, next) => {
     .catch((error) => {console.log(error)});
 
     console.log("Se ha guardado con éxito.")
+    console.log(escuderia)
 };
 
 exports.getList = (request, response, next) => {
 
-    Color.fetchAll()
+    Escuderia.fetchAll()
     .then(([rows, fieldData]) => {
         console.log(rows);
         

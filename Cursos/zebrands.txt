@@ -1,0 +1,5 @@
+ASW - EC2
+PM2 - Dependencia desde donde se debe inicar la aplicación, hace que la aplicación se reinicei en caso de algun fallo
+   
+Instaló las dependencias para ciberseguridad
+
