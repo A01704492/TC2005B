@@ -5,13 +5,36 @@
     <head><meta charset="utf-8"></head>
     <style>
         .card, h2{
-            margin-top: 20px;
-            margin-right: 12px;
-            margin-left: 12px;
+          margin-top: 20px;
+          margin-right: 12px;
+          margin-left: 12px;
+        }
+        #searchBar{
+          margin-top: 2em;
+        }
+        #title{
+          margin-top: 0.7em;
+        }
+        #button{
+          margin-right: 1em;
         }
     </style>
     <body>
-      <u><h2>Escuderías</h2></u>
+        
+      <div class="row">
+        <div id="title" class="col-md-6">
+          <u><h2>Escuderías</h2></u>
+        </div>
+        <div id="searchBar" class="col-md-6">
+          <form class="d-flex" role="search">
+            <input for="buscar" class="form-control me-2" type="search" placeholder="Buscar Escudería..." aria-label="Search">
+            <button id="button" class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+        
+      </div>
+
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
       <br>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
@@ -105,5 +128,54 @@
               </div>
             </div>
           </div>
+
+            <script>
+              document.getElementById("buscar").onkeyup = () => {
+              //función que manda la petición asíncrona
+              const valorBusqueda = document.getElementById("buscar").value;
+              fetch('/list/' + valorBusqueda, {
+                  method: 'GET',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  }
+              }).then(result => {
+                  return result.json();
+
+              }).then(data => {
+                  console.log(data.escuderias);
+                  let respuesta = "";
+                  if(data.escuderias.length > 0){
+                      respuesta += '<div class="row row-cols-1 row-cols-md-3 g-4">';
+                      let columns = 0;
+                      for (let escuderia of data.escuderias){
+                          if (columns % 100 == 0){
+                              respuesta += '</div>';
+                              respuesta += '<div class="row row-cols-1 row-cols-md-3 g-4">';
+                          }
+                          columns++;
+                          respuesta += '<div class="col">';
+                              respuesta += '<div class="card">';
+                                  respuesta += '<img src="/uploads/' + escuderia.imagen_escuderia + '" class="card-img-top" alt="...">';
+                                  respuesta += '<div class="card-body">';
+                                      respuesta += '<h5 class="card-title">' + escuderia.nombre_escuderia + '</h5>';
+                                      respuesta += '<p class="card-text">' + escuderia.descripcion_escuderia + '</p>';
+                                  respuesta += '</div>';
+                              respuesta += '</div>';
+                      }
+                          respuesta += '</div>';
+                          respuesta += '</div>';
+                          respuesta += '<br><br>';
+                  } else{
+                      respuesta += '<br>';
+                      respuesta += '<h4>&nbsp&nbsp&nbspLo sentimos, no tenemos información sobre ese color.</h4>';
+                  }
+              document.getElementById("resultados").innerHTML = respuesta;
+              }).catch(err => {
+                  console.log(err);
+              });
+              }
+          </script>
+
+
     </body>
 </html>

@@ -48,13 +48,13 @@
             </ul>
 
             <span class="navbar-text">
-              <% if(isLoggedIn) { %>
-              <a id="button" type="button" class="btn btn-success">Sign In</a>
+              <% if(!isLoggedIn) { %>
+              <a id="button" type="button" class="btn btn-success" href="usuarios/login">Sign In</a>
               <% } %>
             </span>
 
             <span class="navbar-text">
-              <% if(!isLoggedIn) { %> 
+              <% if(isLoggedIn) { %> 
               <span class="navbar-item"><%= nombre %> | </span>
               <a id="button" type="button" class="btn btn-danger" href="usuarios/login">Log Out</a>
               <% } %>

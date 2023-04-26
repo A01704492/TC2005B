@@ -1,4 +1,12 @@
-const Escuderia = require('../models/colors.model');
+const Escuderia = require('../models/escuderias.model');
+
+exports.getLogin = (request, response, next) => {
+
+    response.render('login', {
+        titulo: 'Escuderias',
+        isLoggedIn: request.session.isLoggedIn || false,
+    });
+};
 
 exports.getMain = (request, response, next) => {
     
@@ -9,7 +17,22 @@ exports.getMain = (request, response, next) => {
 
     response.render('main', {
         titulo: 'Colores',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
+};
+
+exports.get_buscar = (request, response, next) => {
+    
+    Escuderia.find(request.params.valor_busqueda)
+    .then(([rows, fieldData]) => {
+        response.status(200).json({escuderias: rows});
+    })
+    .catch(error => {
+        console.log(error);
+        response.status(500).json({message: "Internal Server Rrror"});
+    });
+
 };
 
 exports.getRegister = (request, response, next) => {
@@ -21,6 +44,8 @@ exports.getRegister = (request, response, next) => {
 
     response.render('register', {
         titulo: 'Registrar',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -33,6 +58,8 @@ exports.getRB = (request, response, next) => {
 
     response.render('redBull', {
         titulo: 'Red Bull',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -45,6 +72,8 @@ exports.getAM = (request, response, next) => {
 
     response.render('astonMartin', {
         titulo: 'Aston Martin',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -57,6 +86,8 @@ exports.getMB = (request, response, next) => {
 
     response.render('mercedes', {
         titulo: 'Mercedes',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -69,6 +100,8 @@ exports.getFR = (request, response, next) => {
 
     response.render('ferrari', {
         titulo: 'Ferrari',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -81,6 +114,8 @@ exports.getML = (request, response, next) => {
 
     response.render('mclaren', {
         titulo: 'McLaren',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -93,6 +128,8 @@ exports.getAP = (request, response, next) => {
 
     response.render('alpine', {
         titulo: 'Alpine',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -105,6 +142,8 @@ exports.getHA = (request, response, next) => {
 
     response.render('haas', {
         titulo: 'Haas',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -117,6 +156,8 @@ exports.getAR = (request, response, next) => {
 
     response.render('alfaromeo', {
         titulo: 'Alfa Romeo',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
@@ -129,14 +170,17 @@ exports.getAT = (request, response, next) => {
 
     response.render('alphatauri', {
         titulo: 'Alpha Tauri',
+        isLoggedIn: request.session.isLoggedIn || false,
+        nombre: request.session.nombre || ''
     });
 };
 
 exports.postEscuderia = (request, response, next) => {
 
     const escuderia = new Escuderia({
-        escuderia: request.body.escuderia,
+        nombre: request.body.nombre,
         descripcion: request.body.descripcion,
+        imagen: request.body.imagen
     });
 
     escuderia.save()
@@ -146,16 +190,19 @@ exports.postEscuderia = (request, response, next) => {
     .catch((error) => {console.log(error)});
 
     console.log("Se ha guardado con éxito.")
+    console.log(escuderia)
 };
 
 exports.getList = (request, response, next) => {
 
-    Color.fetchAll()
+    Escuderia.fetchAll()
     .then(([rows, fieldData]) => {
         console.log(rows);
         
         response.render('list', { 
             escuderias: rows,
+            isLoggedIn: request.session.isLoggedIn || false,
+            nombre: request.session.nombre || ''
         });
     })
     .catch(err => {console.log(err);});

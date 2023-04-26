@@ -4,6 +4,7 @@ exports.getLogin = (request, response, next) => {
 
     response.render('login', {
         titulo: 'Escuderias',
+        isLoggedIn: request.session.isLoggedIn || false,
     });
 };
 
@@ -166,6 +167,7 @@ exports.postEscuderia = (request, response, next) => {
     const escuderia = new Escuderia({
         nombre: request.body.nombre,
         descripcion: request.body.descripcion,
+        imagen: request.body.imagen
     });
 
     escuderia.save()
@@ -186,6 +188,8 @@ exports.getList = (request, response, next) => {
         
         response.render('list', { 
             escuderias: rows,
+            isLoggedIn: request.session.isLoggedIn || false,
+            nombre: request.session.nombre || ''
         });
     })
     .catch(err => {console.log(err);});

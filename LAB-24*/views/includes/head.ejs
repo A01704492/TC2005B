@@ -2,47 +2,67 @@
 <html lang="en">
 
 <head>
-    <title>Laboratorio 17 DB</title>
+    <title>Laboratorio 24 AJAX</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <style>
+      .div{
+        padding-left: 20px;
+      }
+      #button{
+        padding: 10px;
+        margin-right: 10px;
+      }
+    </style>
+
 </head>
 
 <body>
-  <style>
-    .div{
-      padding-left: 20px;
-    }
-    #button{
-      padding: 10px;
-      margin-right: 10px;
-    }
-  </style>
+  
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <i><a class="navbar-brand" href="/">Formula 1</a></i>
+          <i><a class="navbar-brand" href="/home">Formula 1</a></i>
+
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+
+
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                <a class="nav-link active" aria-current="page" href="/home">Inicio</a>
               </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="/register">Register</a>
               </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="/list">List</a>
               </li>
+
             </ul>
+
             <span class="navbar-text">
-              <a id="button" type="button" class="btn btn-success">Sign In</a>
+              <% if(!isLoggedIn) { %>
+              <a id="button" type="button" class="btn btn-success" href="usuarios/login">Sign In</a>
+              <% } %>
             </span>
+
             <span class="navbar-text">
-              <a id="button" type="button" class="btn btn-danger">Log Out</a>
+              <% if(isLoggedIn) { %> 
+              <span class="navbar-item"><%= nombre %> | </span>
+              <a id="button" type="button" class="btn btn-danger" href="usuarios/login">Log Out</a>
+              <% } %>
             </span>
+
           </div>
+
+
         </div>
       </nav>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

@@ -58,9 +58,14 @@ app.use(AT_Ruta);
 app.use(registrarRuta);
 
 // Error
-app.use((request, response) => {
-    response.statusCode = 404;
-    response.send("Lo sentimos, no contamos con esa ruta.");
+app.use((request, response, next) => {
+
+    response.render('error404', {
+
+        titulo: 'F1: ERR404',
+        isLoggedIn: request.session.isLoggedIn || false,
+        username: request.session.username || '',
+    });
 });
 
 app.listen(3000);
