@@ -49,6 +49,21 @@ exports.getRegister = (request, response, next) => {
     });
 };
 
+exports.getList = (request, response, next) => {
+
+    Escuderia.fetchAll()
+    .then(([rows, fieldData]) => {
+        console.log(rows);
+        
+        response.render('list', { 
+            escuderias: rows,
+            isLoggedIn: request.session.isLoggedIn || false,
+            nombre: request.session.nombre || ''
+        });
+    })
+    .catch(err => {console.log(err);});
+};
+
 exports.getRB = (request, response, next) => {
 
     let cookies = request.get('Cookie') || '';
@@ -191,19 +206,4 @@ exports.postEscuderia = (request, response, next) => {
 
     console.log("Se ha guardado con éxito.")
     console.log(escuderia)
-};
-
-exports.getList = (request, response, next) => {
-
-    Escuderia.fetchAll()
-    .then(([rows, fieldData]) => {
-        console.log(rows);
-        
-        response.render('list', { 
-            escuderias: rows,
-            isLoggedIn: request.session.isLoggedIn || false,
-            nombre: request.session.nombre || ''
-        });
-    })
-    .catch(err => {console.log(err);});
 };

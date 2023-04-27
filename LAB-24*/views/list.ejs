@@ -68,18 +68,17 @@
     <script>
 
         document.getElementById("buscar").onkeyup = () => {
-        //función que manda la petición asíncrona
         const valor_busqueda = document.getElementById("buscar").value;
+
         fetch('/list/' + valor_busqueda, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             }
         }).then(result => {
-            return result.json(); //Regresa otra promesa
+            return result.json();
+
         }).then(data => {
-            //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
-            
             let respuesta = "";
 
             if(data.escuderias.length > 0){

@@ -1,0 +1,124 @@
+<%- include('includes/head.ejs') %>
+
+<!DOCTYPE html>
+<html>
+    <head><meta charset="utf-8"></head>
+    <style>
+        .card {
+            margin-top: 40px;
+            margin-right: 10px;
+            margin-left: 20px;
+        }
+        h2, h3{
+            padding-top: 35px;
+            padding-left: 20px;
+        }
+        #searchBar{
+            position: sticky;
+            margin-top: 25px;
+        }
+    </style>
+<body>
+
+    <div class="row">
+        
+        <div id="title" class="col-md-6">
+          <u><h2>Escuderías</h2></u>
+        </div>
+        <div id="searchBar" class="col-md-6">
+          <form class="d-flex" role="search" id="buscar">
+            <input id="valor_busqueda" class="form-control me-2" type="text" placeholder="Buscar Escudería..." aria-label="Search" name="valor_busqueda" required>
+            <button id="button" class="btn btn-outline-success" type="submit">Search</button>
+          </form> 
+        </div>
+        
+    </div>
+
+
+    <h3>Escuderías Filtradas...</h3>
+    
+    <div id="resultados">
+        <% if (escuderias.length > 0) { %>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <% let columns = 0; %>
+                <% for (let escuderia of escuderias) { %>
+                    <% if (columns % 100 == 0) { %>
+            </div>
+    
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <% } %>
+                    <% columns++; %>
+                    <div class="col">
+                        <div class="card">
+                            <img src="<%= escuderia.imagen_escuderia %>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title"><%=escuderia.nombre_escuderia%></h5>
+                              <p class="card-text"><%=escuderia.descripcion_escuderia%></p>
+                            </div>
+                        </div>
+                    <% } %>
+                    </div>
+            </div>
+            <br><br>
+        <% } else { %>
+            <h1>No hay escuderias registradas</h1>
+        <% } %>
+    </div>
+    
+    <script>
+
+        document.getElementById("buscar").onkeyup = () => {
+        const valor_busqueda = document.getElementById("buscar").value;
+
+        fetch('/list/' + valor_busqueda, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then(result => {
+            return result.json();
+
+        }).then(data => {
+            let respuesta = "";
+
+            if(data.escuderias.length > 0){
+                respuesta += '<div class="row row-cols-1 row-cols-md-3 g-4">';
+                let columns = 0;
+                for (let escuderia of data.escuderias){
+                    if (columns % 4 == 0){
+                        respuesta += '</div>';
+                        respuesta += '<div class="row row-cols-1 row-cols-md-3 g-4">';
+                    }
+                    columns++;
+                    respuesta += '<div class="col">';
+                        respuesta += '<div class="card">';
+                            respuesta += '<img src="' + escuderia.imagen_escuderia + '" class="card-img-top" alt="...">';
+                            respuesta += '<div class="card-body">';
+                                respuesta += '<h5 class="card-title">' + escuderia.nombre_escuderia + '</h5>';
+                                respuesta += '<p class="card-text">' + escuderia.descripcion_escuderia + '</p>';
+                            respuesta += '</div>';
+                        respuesta += '</div>';
+                    respuesta += '</div>';
+                }
+                        respuesta += '</div>';
+                        respuesta += '</div>';
+                respuesta += '</div>';
+                    respuesta += '<br><br>';
+
+            } else{
+                respuesta += '<br>';
+                respuesta += '<h4>&nbsp&nbsp&nbspLo sentimos, no tenemos información sobre ese color.</h4>';
+            }
+
+        document.getElementById("resultados").innerHTML = respuesta;
+
+        }).catch(err => {
+            console.log(err);
+        });
+        }
+    </script>
+
+</body>
+
+<%- include('includes/foot.ejs') %>
