@@ -4,55 +4,27 @@ const bcrypt = require('bcryptjs');
 module.exports = class Usuario {
 
     constructor(nuevo_usuario) {
-        this.userName = nuevo_usuario.userName;
-        this.userPass = nuevo_usuario.userPass;
-        this.userMail = nuevo_usuario.userMail;
-        this.userCel = nuevo_usuario.userCel;
-        this.userSkill = nuevo_usuario.userSkill;
-        this.userWeekAP = nuevo_usuario.userWeekAp;
+        this.nombre = nuevo_usuario.nombre || 'John Doe';
+        this.user_email = nuevo_usuario.user_email || 'johndoe@gmail.com';
+        this.user_password = nuevo_usuario.user_password || 'johndoejohndoe';
     }
 
     save() {
-        return bcrypt.hash(this.userPass, 12)
-        .then((password_cifrado) => {
+        return bcrypt.hash(this.user_password, 12)
+        .then((user_password_cifrado) => {
             return db.execute(`
-                INSERT INTO users (user_Name, user_Password, user_Mail, user_Phone, user_Skill, user_WeeklyAgilePoints)
-            values (?, ?, ?, ?, ?, ?)
-            `, [this.userName, password_cifrado, this.userMail, this.userCel, this.userSkill, this.userWeekAP]);
+                INSERT INTO usuarios (nombre, user_email, user_password)
+            values (?, ?, ?)
+            `, [this.nombre, this.user_email, user_password_cifrado]);
         })
         .catch((error) => {console.log(error)});
     }
 
-    static fetchOne(usermail){
+    static fetchOne(user_email) {
         return db.execute(`
             SELECT * 
-            FROM users
-            WHERE user_Mail = ?
-        `, [usermail]);
+            FROM usuarios
+            WHERE user_email = ?
+        `, [user_email]);
     }
-
-    static fetchUser(username){
-        return db.execute(`
-            SELECT * 
-            FROM users
-            WHERE user_Name = ?
-        `, [username]);
-    }
-
-    static fetchAllNames(){
-        return db.execute(`
-            SELECT user_Name FROM users
-        `);
-    }
-
-    static updateTicketInfo(user, ticket_Assignee, ticket_Assignee_ID){
-        return db.execute(`
-            UPDATE users
-            SET 
-            ticket_Assignee = ?,
-            ticket_Assignee_ID = ?
-            WHERE user_Name = ?
-        `, [ticket_Assignee, ticket_Assignee_ID, user]);
-    }
-
 }

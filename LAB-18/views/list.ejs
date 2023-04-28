@@ -1,0 +1,52 @@
+<%- include('includes/head.ejs') %>
+
+<!DOCTYPE html>
+<html>
+    <head><meta charset="utf-8"></head>
+    <style>
+        .card {
+            margin-top: 40px;
+            margin-right: 10px;
+            margin-left: 20px;
+        }
+        h3{
+            padding-top: 20px;
+            padding-left: 20px;
+        }
+        h2{
+            padding-top: 200px;
+            padding-left: 470px;
+        }
+    </style>
+<body>
+    <h3>Escuderías registradas</h3>
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+    <% if (escuderias.length > 0) { %>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <% let columns = 0; %>
+            <% for (let escuderia of escuderias) { %>
+                <% if (columns % 100 == 0) { %>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+                <% } %>
+                <% columns++; %>
+                <div class="col">
+                    <div class="card">
+                        <img src="<%=escuderia.imagen_escuderia%>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title"><%=escuderia.nombre_escuderia%></h5>
+                          <p class="card-text"><%=escuderia.descripcion_escuderia%></p>
+                        </div>
+                    </div>
+                <% } %>
+                </div>
+        </div>
+        <br><br>
+    <% } else { %>
+            <h2>No hay escuderias registradas aún</h2>
+                <br><br>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a class="btn btn-primary btn-lg" type="button" href="/register">Registra Una!</a>
+            </div>
+    <% } %>   
+</body>

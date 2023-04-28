@@ -136,8 +136,6 @@ JOIN materiales AS m ON e.clave = m.clave;
 -- Comprueba lo anterior, creando vistas para cinco de las consultas que planteaste anteriormente en la práctica . Posteriormente revisa cada vista creada para comprobar que devuelve el mismo resultado.
 -- --------------------------------
 
-
-
 -- --------------------------------
 -- A continuación se te dan muchos enunciados de los cuales deberás generar su correspondiente consulta.
 -- En el reporte incluye la sentencia, una muestra de la salida (dos o tres renglones) y el número de renglones que SQL Server reporta al final de la consulta.
@@ -145,20 +143,108 @@ JOIN materiales AS m ON e.clave = m.clave;
 
 -- Los materiales (clave y descripción) entregados al proyecto "México sin ti no estamos completos".
 
+SELECT materiales.clave, materiales.descripcion
+FROM materiales
+INNER JOIN entregan ON materiales.clave = Entregan.clave
+INNER JOIN proyectos ON entregan.numero = Proyectos.numero
+WHERE Proyectos.denominacion = 'México sin ti no estamos completos';
+
 -- Los materiales (clave y descripción) que han sido proporcionados por el proveedor "Acme tools".
+
+SELECT materiales.clave, materiales.descripcion
+FROM materiales
+INNER JOIN entregan ON materiales.Clave = entregan.clave
+INNER JOIN proveedores ON entregan.RFC = proveedores.RFC
+WHERE proveedores.razonsocial = 'Acme tools';
 
 -- El RFC de los proveedores que durante el 2000 entregaron en promedio cuando menos 300 materiales.
 
+SELECT Entregan.RFC
+FROM Entregan
+INNER JOIN Proyectos ON Entregan.Numero = Proyectos.Numero
+WHERE YEAR(Entregan.Fecha) = 2000
+GROUP BY Entregan.RFC
+HAVING AVG(Entregan.Cantidad) >= 300;
+
 -- El Total entregado por cada material en el año 2000.
+
+SELECT Materiales.Clave, SUM(Entregan.Cantidad) AS TotalEntregado
+FROM Materiales
+INNER JOIN Entregan ON Materiales.Clave = Entregan.Clave
+INNER JOIN Proyectos ON Entregan.Numero = Proyectos.Numero
+WHERE YEAR(Entregan.Fecha) = 2000
+GROUP BY Materiales.Clave;
 
 -- La Clave del material más vendido durante el 2001. (se recomienda usar una vista intermedia para su solución)
 
+CREATE VIEW TotalVendido2001 AS
+SELECT Clave, SUM(Cantidad) AS TotalVendido
+FROM Entregan
+WHERE YEAR(Fecha) = 2001
+GROUP BY Clave;
+
 -- Productos que contienen el patrón 'ub' en su nombre.
+
+SELECT Clave, Descripcion
+FROM Materiales
+WHERE Descripcion LIKE '%ub%';
 
 -- Denominación y suma del total a pagar para todos los proyectos.
 
+SELECT Proyectos.Numero, Proyectos.Denominacion, SUM(Entregan.Cantidad * Materiales.Precio) AS TotalAPagar
+FROM Proyectos
+JOIN Entregan ON Proyectos.Numero = Entregan.Numero
+JOIN Materiales ON Entregan.Clave = Materiales.Clave
+GROUP BY Proyectos.Numero;
+
 -- Denominación, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa en acción que no se encuentran apoyando al proyecto Educando en Coahuila (Solo usando vistas).
+
+CREATE VIEW ProveedoresTelevisa AS
+SELECT DISTINCT Proveedores.RFC, Proveedores.RazonSocial
+FROM Proveedores
+JOIN Entregan ON Proveedores.RFC = Entregan.RFC
+JOIN Proyectos ON Entregan.Numero = Proyectos.Numero
+WHERE Proyectos.Denominacion = 'Televisa en acción';
+
+CREATE VIEW ProveedoresCoahuila AS
+SELECT DISTINCT Proveedores.RFC, Proveedores.RazonSocial
+FROM Proveedores
+JOIN Entregan ON Proveedores.RFC = Entregan.RFC
+JOIN Proyectos ON Entregan.Numero = Proyectos.Numero
+WHERE Proyectos.Denominacion = 'Educando en Coahuila';
+
+SELECT DISTINCT 'Televisa en acción' AS Proyecto, ProveedoresTelevisa.RFC, ProveedoresTelevisa.RazonSocial
+FROM ProveedoresTelevisa
+LEFT JOIN ProveedoresCoahuila ON ProveedoresTelevisa.RFC = ProveedoresCoahuila.RFC
+WHERE ProveedoresCoahuila.RFC IS NULL;
 
 -- Denominación, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa en acción que no se encuentran apoyando al proyecto Educando en Coahuila (Sin usar vistas, utiliza not in, in o exists).
 
+SELECT DISTINCT p.Denominacion, pr.RFC, pr.RazonSocial
+FROM Proveedores pr
+INNER JOIN Entregan e ON pr.RFC = e.RFC
+INNER JOIN Proyectos p ON e.Numero = p.Numero
+WHERE p.Denominacion = 'Televisa en acción' 
+AND pr.RFC NOT IN (
+    SELECT DISTINCT pr2.RFC
+    FROM Proveedores pr2
+    INNER JOIN Entregan e2 ON pr2.RFC = e2.RFC
+    INNER JOIN Proyectos p2 ON e2.Numero = p2.Numero
+    WHERE p2.Denominacion = 'Educando en Coahuila'
+)
+
 -- Costo de los materiales y los Materiales que son entregados al proyecto Televisa en acción cuyos proveedores también suministran materiales al proyecto Educando en Coahuila.
+
+SELECT DISTINCT m.Precio, m.Descripcion
+FROM Materiales m
+INNER JOIN Entregan e ON m.Clave = e.Clave
+INNER JOIN Proyectos p ON e.Numero = p.Numero
+INNER JOIN Proveedores pr ON e.RFC = pr.RFC
+WHERE p.Denominacion = 'Televisa en acción'
+AND pr.RFC IN (
+    SELECT DISTINCT pr2.RFC
+    FROM Proveedores pr2
+    INNER JOIN Entregan e2 ON pr2.RFC = e2.RFC
+    INNER JOIN Proyectos p2 ON e2.Numero = p2.Numero
+    WHERE p2.Denominacion = 'Educando en Coahuila'
+)
