@@ -5,6 +5,7 @@ const appController = require('../controllers/upload.controller');
 
 router.get('/', appController.getMain);
 router.get('/upload', appController.getUpload);
+router.post('/upload', appController.postUpload);
 router.get('/services', appController.getServices);
 router.get('/contact', appController.getContact);
 
