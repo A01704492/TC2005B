@@ -248,3 +248,4 @@ AND pr.RFC IN (
     INNER JOIN Proyectos p2 ON e2.Numero = p2.Numero
     WHERE p2.Denominacion = 'Educando en Coahuila'
 )
+
